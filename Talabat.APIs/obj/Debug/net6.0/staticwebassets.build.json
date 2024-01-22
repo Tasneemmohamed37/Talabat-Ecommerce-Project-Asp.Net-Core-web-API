@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "VFNKCZHoB3tA0NAzELzxnijmzCviWyMHR30Fz61wZjU=",
+  "Source": "Talabat.APIs",
+  "BasePath": "_content/Talabat.APIs",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Talabat.APIs\\wwwroot",
+      "Source": "Talabat.APIs",
+      "ContentRoot": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.APIs\\wwwroot\\",
+      "BasePath": "_content/Talabat.APIs",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
