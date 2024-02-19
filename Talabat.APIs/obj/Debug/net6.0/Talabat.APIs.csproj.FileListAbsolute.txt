@@ -71,3 +71,4 @@ C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Talabat.Reposatory.
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Talabat.Reposatory.pdb
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Talabat.Core.pdb
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Talabat.APIs.staticwebassets.runtime.json
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\obj\Debug\net6.0\Talabat.APIs.sourcelink.json

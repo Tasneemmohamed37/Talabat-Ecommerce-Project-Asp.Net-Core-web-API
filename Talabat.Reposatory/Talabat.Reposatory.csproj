@@ -19,7 +19,6 @@
     <Folder Include="Data\DataSeed\" />
     <Folder Include="Data\Config\" />
     <Folder Include="Identity\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

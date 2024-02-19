@@ -13,3 +13,4 @@ C:\Users\MEDIA\Desktop\Talabat\Talabat.Reposatory\bin\Debug\net6.0\Talabat.Core.
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Reposatory\bin\Debug\net6.0\Talabat.Core.pdb
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Reposatory\obj\Debug\net6.0\Talabat.Reposatory.csproj.AssemblyReference.cache
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Reposatory\obj\Debug\net6.0\Talabat.Reposatory.csproj.CopyComplete
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Reposatory\obj\Debug\net6.0\Talabat.Reposatory.sourcelink.json
