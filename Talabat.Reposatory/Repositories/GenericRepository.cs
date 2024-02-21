@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Talabat.Core.Entities;
 using Talabat.Core.Entities.Product;
 using Talabat.Core.Interfaces;
+using Talabat.Core.Specification;
 using Talabat.Reposatory.Data.Context;
 
 namespace Talabat.Reposatory.Repositories
@@ -31,6 +32,22 @@ namespace Talabat.Reposatory.Repositories
         public async Task<T> GetByIdAsync(int id)
         {
             return await _dbContext.Set<T>().FirstAsync(x => x.Id == id); // search local first if not found then search remote
+        }
+
+
+        public async Task<IEnumerable<T>> GetAllWithSpecAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecifications(spec).ToListAsync();
+        }
+
+        public async Task<T> GetByIdWithSpecAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecifications(spec).FirstOrDefaultAsync();
+        }
+
+        private  IQueryable<T> ApplySpecifications (ISpecification<T> spec)
+        {
+            return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
         }
     }
 }
