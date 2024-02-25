@@ -1,4 +1,8 @@
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Talabat.APIs.Errors;
+using Talabat.APIs.Helpers;
 using Talabat.Core.Interfaces;
 using Talabat.Reposatory.Data.Context;
 using Talabat.Reposatory.Repositories;
@@ -28,6 +32,33 @@ namespace Talabat.APIs
 
             #region Repos
             builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            #endregion
+
+            #region Auto Mapper
+
+            // work transiant becouse for sure in one request need to map only one time 
+            builder.Services.AddAutoMapper(typeof(mappingProfiles));
+
+            #endregion
+
+            #region Configure apiBehavior [validation error]
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = (ActionContext) =>
+                {
+                    var errors = ActionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)
+                                                         .SelectMany(P => P.Value.Errors)
+                                                         .Select(E => E.ErrorMessage)
+                                                         .ToArray();
+
+                    var validationErrorResponse = new ApiValidationErrorResponse()
+                    {
+                        Errors = errors
+                    };
+
+                    return new BadRequestObjectResult(validationErrorResponse);
+                };
+            });
             #endregion
 
             #endregion
@@ -74,6 +105,7 @@ namespace Talabat.APIs
 
             app.UseAuthorization();
 
+            app.UseStaticFiles();
 
             app.MapControllers(); // insted of useRouting useEndPoint 
             #endregion
