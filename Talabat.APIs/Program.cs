@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Talabat.APIs.Custom_Middlewares;
 using Talabat.APIs.Errors;
 using Talabat.APIs.Helpers;
 using Talabat.Core.Interfaces;
@@ -90,11 +91,18 @@ namespace Talabat.APIs
                 logger.LogError(ex, "an Error occured during apply the migration");
             }
 
-            
+
 
             #endregion
 
-            #region Configure the HTTP request pipeline.
+            #region Configure the HTTP request pipeline [ kestral middelwares]
+
+            #region custom middleware [ exeption middleware ]
+
+            app.UseMiddleware<ExeptionMiddleware>();
+
+            #endregion
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

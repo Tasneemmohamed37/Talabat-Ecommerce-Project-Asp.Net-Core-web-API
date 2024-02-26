@@ -1,6 +1,7 @@
 ﻿
 namespace Talabat.APIs.Errors
 {
+    //handel notFound & badRequest errors 
     public class ApiResponse
     {
         public int StatusCode { get; set; }

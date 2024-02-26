@@ -41,5 +41,7 @@ namespace Talabat.APIs.Controllers
                     return NotFound(new ApiResponse(404));
                 return Ok(_mapper.Map<Product , ProductToReturnDto>(prd));
         }
+
+       
     }
 }
