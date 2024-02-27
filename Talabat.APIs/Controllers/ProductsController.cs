@@ -23,6 +23,7 @@ namespace Talabat.APIs.Controllers
             _mapper = mapper;
         }
 
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductToReturnDto>>> GetAllProducts()
         {
@@ -32,6 +33,8 @@ namespace Talabat.APIs.Controllers
         }
 
 
+        [ProducesResponseType(typeof(ProductToReturnDto), StatusCodes.Status200OK)] // used to improve swagger documentation
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductToReturnDto>> GetProductByIdAsync(int id)
         {

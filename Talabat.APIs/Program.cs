@@ -109,6 +109,10 @@ namespace Talabat.APIs
                 app.UseSwaggerUI();
             }
 
+            #region handle notFound endPoint
+            app.UseStatusCodePagesWithReExecute("errors/{0}");
+            #endregion
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
