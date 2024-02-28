@@ -10,8 +10,9 @@ namespace Talabat.Core.Interfaces
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {
-        Task<IEnumerable<T>> GetAllAsync();
-        Task<IEnumerable<T>> GetAllWithSpecAsync(ISpecification<T> spec);
+        //IReadOnlyList best performance in case of casing & readable random access without filtretion or Iteration or insert , update ,delete
+        Task<IReadOnlyList<T>> GetAllAsync();
+        Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec);
 
         Task<T> GetByIdAsync(int id);
         Task<T> GetByIdWithSpecAsync(ISpecification<T> spec);

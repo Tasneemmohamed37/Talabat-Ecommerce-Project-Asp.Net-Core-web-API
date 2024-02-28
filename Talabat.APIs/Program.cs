@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Talabat.APIs.Custom_Middlewares;
 using Talabat.APIs.Errors;
+using Talabat.APIs.Extentions;
 using Talabat.APIs.Helpers;
 using Talabat.Core.Interfaces;
 using Talabat.Reposatory.Data.Context;
@@ -20,9 +21,10 @@ namespace Talabat.APIs
             #region Add services to the container [ Allow DI ]
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            #region extention method include swagger services
+            builder.Services.AddSwaggerServices();
+            #endregion
 
             #region DbContext
             builder.Services.AddDbContext<StoreContext>(options =>
@@ -31,35 +33,10 @@ namespace Talabat.APIs
             });
             #endregion
 
-            #region Repos
-            builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
-            #endregion
+            #region extention method include DI services
 
-            #region Auto Mapper
+            builder.Services.ApplicationServices();
 
-            // work transiant becouse for sure in one request need to map only one time 
-            builder.Services.AddAutoMapper(typeof(mappingProfiles));
-
-            #endregion
-
-            #region Configure apiBehavior [validation error]
-            builder.Services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = (ActionContext) =>
-                {
-                    var errors = ActionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)
-                                                         .SelectMany(P => P.Value.Errors)
-                                                         .Select(E => E.ErrorMessage)
-                                                         .ToArray();
-
-                    var validationErrorResponse = new ApiValidationErrorResponse()
-                    {
-                        Errors = errors
-                    };
-
-                    return new BadRequestObjectResult(validationErrorResponse);
-                };
-            });
             #endregion
 
             #endregion
@@ -105,8 +82,9 @@ namespace Talabat.APIs
 
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                #region extention method include swagger middlewares
+                app.UseSwaggerMiddlewares();
+                #endregion
             }
 
             #region handle notFound endPoint
