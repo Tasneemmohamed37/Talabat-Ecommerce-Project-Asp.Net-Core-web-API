@@ -17,6 +17,7 @@ namespace Talabat.APIs.Controllers
     {
         private readonly IGenericRepository<Product> _productRepo;
         private readonly IGenericRepository<Product_Type> _typeRepo;
+
         private readonly IGenericRepository<Product_Brand> _brandRepo;
         private readonly IMapper _mapper;
 
