@@ -19,6 +19,13 @@ namespace Talabat.Core.Specification
         public Expression<Func<T, object>> OrderBy { get; set; }
         public Expression<Func<T, object>> OrderByDescending { get; set; }
 
+        #region Pagination
+
+        public int Take { get ; set; }
+        public int Skip { get; set; }
+        public bool IsPaginationEnabled { get; set; }
+
+        #endregion
 
         // this ctor used in case no criteria 'GetAll'
         public BaseSpecification()
@@ -40,5 +47,15 @@ namespace Talabat.Core.Specification
         {
             OrderByDescending = orderByDescExpression;
         }
+
+        public void ApplyPagination(int skip , int take)
+        {
+            IsPaginationEnabled = true;
+                Skip = skip;
+                Take = take;
+            
+        }
+
+
     }
 }

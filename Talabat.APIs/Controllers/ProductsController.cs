@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Talabat.APIs.DTOs;
 using Talabat.APIs.Errors;
+using Talabat.APIs.Helpers;
 using Talabat.Core.Entities.Product;
 using Talabat.Core.Interfaces;
 using Talabat.Core.Specification;
@@ -35,13 +36,21 @@ namespace Talabat.APIs.Controllers
 
         #region Get All Products
 
-        [ProducesResponseType(typeof(IReadOnlyList<ProductToReturnDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IReadOnlyList<Pagination<ProductToReturnDto>>), StatusCodes.Status200OK)]
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetAllProducts(string? sort = null , int? brandId = null , int? typeId = null)
+        public async Task<ActionResult<IReadOnlyList<Pagination<ProductToReturnDto>>>> GetAllProducts([FromQuery]ProductSpecParams specParams) // use attribute from query becouse by defualt search for obj param in body , and get request not have body
         {
-            var spec = new ProductWithTypeAndBrandSpecifications(sort , brandId , typeId);
+            var spec = new ProductWithTypeAndBrandSpecifications(specParams);
+
             IReadOnlyList<Product> products = await _productRepo.GetAllWithSpecAsync(spec);
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
+
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+
+            var countSpec = new ProductWithFilterationForCountSpecification(specParams);
+
+            var count = await _productRepo.GetCountWithSpecAsync(countSpec);
+            
+            return Ok(new Pagination<ProductToReturnDto>(specParams.PageIndex , specParams.PageSize , count ,data));
         }
 
         #endregion
