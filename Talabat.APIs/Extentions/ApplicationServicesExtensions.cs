@@ -11,6 +11,7 @@ namespace Talabat.APIs.Extentions
         public static IServiceCollection ApplicationServices(this IServiceCollection services)
         {
             #region Repos
+            services.AddScoped(typeof(IBasketRepository), typeof(BasketRepository));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             #endregion
 

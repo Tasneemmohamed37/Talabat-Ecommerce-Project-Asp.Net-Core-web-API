@@ -74,3 +74,5 @@ C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Talabat.APIs.static
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\obj\Debug\net6.0\Talabat.APIs.sourcelink.json
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\StackExchange.Redis.dll

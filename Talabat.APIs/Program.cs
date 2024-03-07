@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 using Talabat.APIs.Custom_Middlewares;
 using Talabat.APIs.Errors;
 using Talabat.APIs.Extentions;
@@ -31,6 +32,18 @@ namespace Talabat.APIs
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection"));
             });
+            #endregion
+
+            #region Redis
+
+            // use Singleton to use same obj while user use wabsite
+            builder.Services.AddSingleton<IConnectionMultiplexer>(S =>
+            {
+                var connection = builder.Configuration.GetConnectionString("Redis");
+
+                return ConnectionMultiplexer.Connect(connection);
+            });
+
             #endregion
 
             #region extention method include DI services

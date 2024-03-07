@@ -117,6 +117,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.27, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

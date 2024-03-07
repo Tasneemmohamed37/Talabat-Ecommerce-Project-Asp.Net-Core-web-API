@@ -10,3 +10,4 @@ C:\Users\MEDIA\Desktop\Talabat\Talabat.Core\obj\Debug\net6.0\refint\Talabat.Core
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Core\obj\Debug\net6.0\Talabat.Core.pdb
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Core\obj\Debug\net6.0\ref\Talabat.Core.dll
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Core\obj\Debug\net6.0\Talabat.Core.sourcelink.json
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Core\obj\Debug\net6.0\Talabat.Core.csproj.AssemblyReference.cache

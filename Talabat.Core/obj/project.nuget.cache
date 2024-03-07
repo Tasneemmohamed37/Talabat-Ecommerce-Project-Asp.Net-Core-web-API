@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "7I9AjTu+F9ZGbDD5SN6apfbcdV6ZSUpuBpTPVoPG1O0LQ+rxKyi6aX2yaiT0sTCObgE1rrTkHTyuxudUSAV4zA==",
+  "dgSpecHash": "WH27VAlaGThiRurktzXN7byFondsQrugNHdqoDxLufSzpa3Xv84Sflbu5UHwHyrpUTUXTNVCwf+LIlT7YYJrRg==",
   "success": true,
   "projectFilePath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MEDIA\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\MEDIA\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\MEDIA\\.nuget\\packages\\stackexchange.redis\\2.7.27\\stackexchange.redis.2.7.27.nupkg.sha512",
+    "C:\\Users\\MEDIA\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
