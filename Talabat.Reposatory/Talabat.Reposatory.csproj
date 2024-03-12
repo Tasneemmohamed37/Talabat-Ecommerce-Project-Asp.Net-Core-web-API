@@ -18,7 +18,6 @@
     <Folder Include="Data\Migrations\" />
     <Folder Include="Data\DataSeed\" />
     <Folder Include="Data\Config\" />
-    <Folder Include="Identity\" />
   </ItemGroup>
 
 </Project>

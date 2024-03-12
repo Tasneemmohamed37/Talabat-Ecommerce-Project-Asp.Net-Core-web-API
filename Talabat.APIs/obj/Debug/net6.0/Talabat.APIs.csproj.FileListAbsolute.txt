@@ -76,3 +76,8 @@ C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\StackExchange.Redis.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.APIs\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

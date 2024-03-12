@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
@@ -6,8 +7,10 @@ using Talabat.APIs.Custom_Middlewares;
 using Talabat.APIs.Errors;
 using Talabat.APIs.Extentions;
 using Talabat.APIs.Helpers;
+using Talabat.Core.Entities.Identity;
 using Talabat.Core.Interfaces;
 using Talabat.Reposatory.Data.Context;
+using Talabat.Reposatory.Identity.context;
 using Talabat.Reposatory.Repositories;
 
 namespace Talabat.APIs
@@ -34,6 +37,13 @@ namespace Talabat.APIs
             });
             #endregion
 
+            #region IdentityDbcontext
+            builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
+            });
+            #endregion
+
             #region Redis
 
             // use Singleton to use same obj while user use wabsite
@@ -50,7 +60,13 @@ namespace Talabat.APIs
 
             builder.Services.ApplicationServices();
 
+            #region Identity 
+
+            builder.Services.IdentityServices();
             #endregion
+
+            #endregion
+
 
             #endregion
 
@@ -73,6 +89,15 @@ namespace Talabat.APIs
                 await DbContext.Database.MigrateAsync();
 
                 await StoreContextSeed.SeedAsync(DbContext);
+
+                AppIdentityDbContext IdentityDbContext = services.GetRequiredService<AppIdentityDbContext>(); //Ask Explicitly
+
+                await IdentityDbContext.Database.MigrateAsync();
+
+
+                var userManeger = services.GetRequiredService<UserManager<AppUser>>();
+                await AppIdentityDbContextSeed.SeedUserAsync(userManeger);
+
             }
             catch (Exception ex)
             {
