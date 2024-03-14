@@ -4,14 +4,14 @@
     "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj": {
+    "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj",
-        "projectName": "Talabat.Services",
-        "projectPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj",
+        "projectUniqueName": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj",
+        "projectName": "Talabat.Core",
+        "projectPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj",
         "packagesPath": "C:\\Users\\MEDIA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\obj\\",
+        "outputPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MEDIA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,81 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.27, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.27, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj",
+        "projectName": "Talabat.Services",
+        "projectPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\Talabat.Services.csproj",
+        "packagesPath": "C:\\Users\\MEDIA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\MEDIA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj": {
+                "projectPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.28, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

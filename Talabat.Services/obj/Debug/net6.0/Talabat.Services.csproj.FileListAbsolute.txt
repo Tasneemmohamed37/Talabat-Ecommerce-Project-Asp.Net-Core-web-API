@@ -9,3 +9,8 @@ C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\Talabat.Service
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\refint\Talabat.Services.dll
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\Talabat.Services.pdb
 C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\ref\Talabat.Services.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\bin\Debug\net6.0\Talabat.Core.dll
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\bin\Debug\net6.0\Talabat.Core.pdb
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\Talabat.Services.csproj.AssemblyReference.cache
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\Talabat.Services.sourcelink.json
+C:\Users\MEDIA\Desktop\Talabat\Talabat.Services\obj\Debug\net6.0\Talabat.Services.csproj.CopyComplete

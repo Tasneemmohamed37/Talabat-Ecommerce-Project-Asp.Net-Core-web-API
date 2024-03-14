@@ -17,7 +17,7 @@ namespace Talabat.Reposatory.Identity.context
                 var user = new AppUser()
                 {
                     DisplayName = "tasneem mohamed",
-                    Email = "tasnemmuhammed37@gmail,com",
+                    Email = "tasnemmuhammed37@gmail.com",
                     UserName = "tasneem.mohamed",
                     PhoneNumber = "01028249977"
                 };
