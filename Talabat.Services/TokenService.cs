@@ -37,10 +37,10 @@ namespace Talabat.Services
                 authClaims.Add(new Claim(ClaimTypes.Role,role));
 
             var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
-
             // token which include from -> header [alg | typ]
             //                          -> payload [registered claims 'issuer, audience, duration' | private claims]
             //                          -> signature
+
             var token = new JwtSecurityToken(
 
             #region payload

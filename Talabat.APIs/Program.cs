@@ -62,7 +62,7 @@ namespace Talabat.APIs
 
             #region Identity 
 
-            builder.Services.IdentityServices();
+            builder.Services.IdentityServices(builder.Configuration);
             #endregion
 
             #endregion
@@ -126,10 +126,11 @@ namespace Talabat.APIs
             }
 
             #region handle notFound endPoint
-            app.UseStatusCodePagesWithReExecute("errors/{0}");
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
             #endregion
 
             app.UseHttpsRedirection();
+
 
             app.UseAuthorization();
 
