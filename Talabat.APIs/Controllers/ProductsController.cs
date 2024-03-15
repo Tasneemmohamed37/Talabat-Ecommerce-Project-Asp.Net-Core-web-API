@@ -16,7 +16,7 @@ namespace Talabat.APIs.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly IGenericRepository<Product> _productRepo;

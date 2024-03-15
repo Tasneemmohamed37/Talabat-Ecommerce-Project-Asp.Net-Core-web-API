@@ -19,6 +19,7 @@ namespace Talabat.APIs.Extentions
             services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddAuthentication(/*JwtBearerDefaults.AuthenticationScheme*/ Options =>
             {
+                // this options used instead of write scheme with auth filter in endpoints
                 Options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 Options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })

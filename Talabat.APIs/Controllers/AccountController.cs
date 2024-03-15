@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Talabat.APIs.DTOs.Identity;
 using Talabat.APIs.Errors;
+using Talabat.APIs.Extentions;
 using Talabat.Core.Entities.Identity;
 using Talabat.Core.Services;
 
@@ -15,15 +20,18 @@ namespace Talabat.APIs.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ITokenService _tokenService;
+        private readonly IMapper _mapper;
 
         public AccountController(
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
-            ITokenService tokenService)
+            ITokenService tokenService,
+            IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenService = tokenService;
+            _mapper = mapper;
         }
 
         #region Login
@@ -79,6 +87,60 @@ namespace Talabat.APIs.Controllers
             }); 
         }
 
+        #endregion
+
+        #region Get Current User [endPoint used in front end]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet]
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        {
+            //user is prop inhairited from controllerBase
+
+            var email = User.FindFirstValue(ClaimTypes.Email);
+            var user = await _userManager.FindByEmailAsync(email); // impossible this user may be null, becouse this end point is authorize 
+            return Ok(new UserDto()
+            {
+                DisplayName = user.DisplayName,
+                Email = user.Email,
+                Token = await _tokenService.CreateTokenAsync(user, _userManager) // for now will create new token, but in the future will get current user token
+            }); 
+        }
+        #endregion
+
+        #region Get User Address
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet("address")]
+        public async Task<ActionResult<AddressDto>> GetUserAddress()
+        {
+            var user = await _userManager.FindUserWithAddressAsync(User);
+
+            var address = _mapper.Map<Address, AddressDto>(user.Address);
+
+            return Ok(address);
+        }
+        #endregion
+
+
+        #region Update User Address
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPut("address")]
+        public async Task<ActionResult<AddressDto>> UpdateAddrss(AddressDto updatedAddress)
+        {
+            var address = _mapper.Map<AddressDto, Address>(updatedAddress);
+
+            var user = await _userManager.FindUserWithAddressAsync(User);
+
+            address.Id = user.Address.Id;
+
+            user.Address = address;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+                return BadRequest(new ApiResponse(400));
+
+            return Ok(updatedAddress);
+        }
         #endregion
     }
 }
