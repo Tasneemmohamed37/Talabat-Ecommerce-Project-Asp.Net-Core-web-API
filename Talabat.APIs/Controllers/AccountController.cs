@@ -65,6 +65,9 @@ namespace Talabat.APIs.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto model)
         {
+            //use .Result to make this code sync to block code after it not execute untill this code finish
+            if(CheckEmailExist(model.Email).Result.Value)
+                return BadRequest(new ApiValidationErrorResponse() { Errors = new string[] {"this email already exist!!" } });
 
             var user = new AppUser()
             {
@@ -120,7 +123,6 @@ namespace Talabat.APIs.Controllers
         }
         #endregion
 
-
         #region Update User Address
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("address")]
@@ -140,6 +142,15 @@ namespace Talabat.APIs.Controllers
                 return BadRequest(new ApiResponse(400));
 
             return Ok(updatedAddress);
+        }
+        #endregion
+
+        #region Check Email Exist
+
+        [HttpGet("emailexist")]
+        public async Task<ActionResult<bool>> CheckEmailExist(string email)
+        {
+            return await _userManager.FindByEmailAsync(email) is not null;
         }
         #endregion
     }
