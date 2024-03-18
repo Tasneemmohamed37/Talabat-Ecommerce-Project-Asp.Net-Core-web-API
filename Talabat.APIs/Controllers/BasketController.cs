@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Talabat.APIs.DTOs.Basket;
 using Talabat.APIs.Errors;
 using Talabat.Core.Entities.Cart;
 using Talabat.Core.Interfaces;
@@ -11,10 +13,14 @@ namespace Talabat.APIs.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketRepository _basketRepository;
+        private readonly IMapper _mapper;
 
-        public BasketController(IBasketRepository basketRepository)
+        public BasketController(
+            IBasketRepository basketRepository,
+            IMapper mapper)
         {
             _basketRepository = basketRepository;
+            _mapper = mapper;
         }
 
         #region GetBasketAsync
@@ -33,8 +39,9 @@ namespace Talabat.APIs.Controllers
         [ProducesResponseType(typeof(CustomerBasket), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public async Task<ActionResult<CustomerBasket>> CreateOrUpdateBasket(CustomerBasket basket)
+        public async Task<ActionResult<CustomerBasket>> CreateOrUpdateBasket(CustomerBasketDto basketDto)
         {
+            var basket = _mapper.Map<CustomerBasketDto, CustomerBasket>(basketDto);
             var createdOrUpdatedBasket = await _basketRepository.UpdateBasketAsync(basket);
             if (createdOrUpdatedBasket != null)
                 return Ok(createdOrUpdatedBasket);

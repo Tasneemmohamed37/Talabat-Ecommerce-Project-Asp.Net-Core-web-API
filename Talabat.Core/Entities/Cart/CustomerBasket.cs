@@ -8,7 +8,7 @@ namespace Talabat.Core.Entities.Cart
 {
     public class CustomerBasket
     {
-        public string Id { get; set; } // string to use guid 
+        public string Id { get; set; } // string to use guid  
 
         public List<BasketItem> Items { get; set; } = new List<BasketItem>();
 
