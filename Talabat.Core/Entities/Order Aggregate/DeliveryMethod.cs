@@ -9,6 +9,20 @@ namespace Talabat.Core.Entities.Order_Aggregate
 {
     public class DeliveryMethod : BaseEntity
     {
+
+        public DeliveryMethod() // EF core use it to add migration
+        {
+            
+        }
+
+        public DeliveryMethod(string shortName, string description, decimal cost, string deliveryTime)
+        {
+            ShortName = shortName;
+            Description = description;
+            Cost = cost;
+            DeliveryTime = deliveryTime;
+        }
+
         public string ShortName { get; set; }
         public string Description { get; set; }
         

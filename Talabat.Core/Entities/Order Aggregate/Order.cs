@@ -8,6 +8,21 @@ namespace Talabat.Core.Entities.Order_Aggregate
 {
     public class Order : BaseEntity
     {
+
+        public Order() // EF core use it to add migration
+        {
+
+        }
+
+        public Order(string buyerEmail, Address shipToAddress, DeliveryMethod deliveryMethod, ICollection<OrderItem> items, decimal subTotal)
+        {
+            BuyerEmail = buyerEmail;
+            ShipToAddress = shipToAddress;
+            DeliveryMethod = deliveryMethod;
+            Items = items;
+            SubTotal = subTotal;
+        }
+
         public string BuyerEmail { get; set; }
         public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.Now; // use dateTimeOffset becouse if it international website must use UTC universal time 
         public OrderStatus Status { get; set; } = OrderStatus.Pending;

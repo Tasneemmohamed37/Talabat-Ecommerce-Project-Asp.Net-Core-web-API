@@ -8,6 +8,19 @@ namespace Talabat.Core.Entities.Order_Aggregate
 {
     public class OrderItem : BaseEntity
     {
+
+        public OrderItem() // EF core use it to add migration
+        { 
+        
+        }
+
+        public OrderItem(ProductItemOrdered productItemOrdered, decimal price, int quantity)
+        {
+            ProductItemOrdered = productItemOrdered;
+            Price = price;
+            Quantity = quantity;
+        }
+
         // refer to product in order as an item 
 
         public ProductItemOrdered ProductItemOrdered { get; set; }

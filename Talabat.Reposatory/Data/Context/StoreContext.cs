@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Talabat.Core.Entities.Order_Aggregate;
 using Talabat.Core.Entities.Product;
 
 namespace Talabat.Reposatory.Data.Context
@@ -28,8 +29,17 @@ namespace Talabat.Reposatory.Data.Context
 
         }
 
+        #region product DbSets
         public DbSet<Product> Products { get; set; }
         public DbSet<Product_Brand> Product_Brands { get; set; }
         public DbSet<Product_Type> Product_Types { get; set; }
+        #endregion
+
+        #region Order Dbset
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
+        #endregion
+
     }
 }
