@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Talabat.Core\Talabat.Core.csproj" />
+    <ProjectReference Include="..\Talabat.Reposatory\Talabat.Reposatory.csproj" />
   </ItemGroup>
 
 </Project>

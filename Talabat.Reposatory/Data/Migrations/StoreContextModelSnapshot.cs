@@ -63,7 +63,7 @@ namespace Talabat.Reposatory.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DeliveryMethodId")
-                        .HasColumnType("int?");
+                        .HasColumnType("int");
 
                     b.Property<DateTimeOffset>("OrderDate")
                         .HasColumnType("datetimeoffset");

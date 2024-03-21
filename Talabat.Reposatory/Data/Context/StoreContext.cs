@@ -36,9 +36,9 @@ namespace Talabat.Reposatory.Data.Context
         #endregion
 
         #region Order Dbset
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderItem> OrderItem { get; set; }
+        public DbSet<DeliveryMethod> DeliveryMethod { get; set; }
         #endregion
 
     }

@@ -1158,7 +1158,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.28",
-          "Talabat.Core": "1.0.0"
+          "Talabat.Core": "1.0.0",
+          "Talabat.Reposatory": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Talabat.Services.dll": {}

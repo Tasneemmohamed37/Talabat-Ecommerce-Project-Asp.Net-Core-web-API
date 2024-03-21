@@ -241,6 +241,9 @@
             "projectReferences": {
               "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj": {
                 "projectPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Core\\Talabat.Core.csproj"
+              },
+              "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Reposatory\\Talabat.Reposatory.csproj": {
+                "projectPath": "C:\\Users\\MEDIA\\Desktop\\Talabat\\Talabat.Reposatory\\Talabat.Reposatory.csproj"
               }
             }
           }

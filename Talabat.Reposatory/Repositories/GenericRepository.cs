@@ -16,7 +16,7 @@ namespace Talabat.Reposatory.Repositories
     {
         private readonly StoreContext _dbContext;
 
-        public GenericRepository(StoreContext dbContext) // ask clr implicitly
+        public GenericRepository(StoreContext dbContext) 
         {
             _dbContext = dbContext;
         }
@@ -55,6 +55,19 @@ namespace Talabat.Reposatory.Repositories
             return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
         }
 
-        
+        public async Task AddAsync(T entity)
+        {
+            await _dbContext.Set<T>().AddAsync(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _dbContext.Set<T>().Update(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            _dbContext.Set<T>().Remove(entity);
+        }
     }
 }
