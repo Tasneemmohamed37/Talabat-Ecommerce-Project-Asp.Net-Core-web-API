@@ -660,7 +660,8 @@
       "Talabat.Services/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.28",
-          "Talabat.Core": "1.0.0"
+          "Talabat.Core": "1.0.0",
+          "Talabat.Reposatory": "1.0.0"
         },
         "runtime": {
           "Talabat.Services.dll": {}

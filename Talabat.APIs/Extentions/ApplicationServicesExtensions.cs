@@ -12,7 +12,7 @@ namespace Talabat.APIs.Extentions
         {
             #region Repos
             services.AddScoped(typeof(IBasketRepository), typeof(BasketRepository));
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             #endregion
 
             #region Auto Mapper
