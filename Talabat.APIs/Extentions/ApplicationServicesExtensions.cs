@@ -2,7 +2,9 @@
 using Talabat.APIs.Errors;
 using Talabat.APIs.Helpers;
 using Talabat.Core.Interfaces;
+using Talabat.Core.Services;
 using Talabat.Reposatory.Repositories;
+using Talabat.Services;
 
 namespace Talabat.APIs.Extentions
 {
@@ -13,6 +15,10 @@ namespace Talabat.APIs.Extentions
             #region Repos
             services.AddScoped(typeof(IBasketRepository), typeof(BasketRepository));
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+            #endregion
+
+            #region Services
+            services.AddScoped<IOrderService, OrderService>();
             #endregion
 
             #region Auto Mapper

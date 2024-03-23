@@ -4,6 +4,7 @@ using Talabat.APIs.DTOs.Basket;
 using Talabat.APIs.DTOs.Identity;
 using Talabat.Core.Entities.Cart;
 using Talabat.Core.Entities.Identity;
+using Talabat.Core.Entities.Order_Aggregate;
 using Talabat.Core.Entities.Product;
 
 namespace Talabat.APIs.Helpers
@@ -27,7 +28,8 @@ namespace Talabat.APIs.Helpers
             CreateMap<BasketItem, BasketItemDto>().ReverseMap();
             #endregion
 
-            CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<Core.Entities.Identity.Address, AddressDto>().ReverseMap();
+            CreateMap<Core.Entities.Order_Aggregate.Address, AddressDto>().ReverseMap();
         }
     }
 }

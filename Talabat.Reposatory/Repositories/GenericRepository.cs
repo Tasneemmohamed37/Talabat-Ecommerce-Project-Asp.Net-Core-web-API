@@ -31,7 +31,7 @@ namespace Talabat.Reposatory.Repositories
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbContext.Set<T>().FirstAsync(x => x.Id == id); // search local first if not found then search remote
+            return await _dbContext.Set<T>().FindAsync(id); // search local first if not found then search remote
         }
 
 

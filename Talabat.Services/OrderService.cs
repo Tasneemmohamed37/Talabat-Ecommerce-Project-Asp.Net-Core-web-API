@@ -7,6 +7,7 @@ using Talabat.Core.Entities.Order_Aggregate;
 using Talabat.Core.Entities.Product;
 using Talabat.Core.Interfaces;
 using Talabat.Core.Services;
+using Talabat.Core.Specification.Orders;
 using Talabat.Reposatory.Repositories;
 
 namespace Talabat.Services
@@ -34,7 +35,7 @@ namespace Talabat.Services
 
             if(basket?.Items?.Count > 0)
             {
-                foreach (var item in orderItems)
+                foreach (var item in basket.Items)
                 {
                     var product = await _unitOfWork.Repository<Product>().GetByIdAsync(item.Id);
 
@@ -66,19 +67,28 @@ namespace Talabat.Services
         }
 
        
-        public Task<Order> GetOrderByIdForUserAsync(int orderId, string buyerEmail)
+        public async Task<Order> GetOrderByIdForUserAsync(int orderId, string buyerEmail)
         {
-            throw new NotImplementedException();
+            var spec = new OrderWithItemsAndDeliveryMethodSpecifications(orderId, buyerEmail);
+
+            var order = await _unitOfWork.Repository<Order>().GetByIdWithSpecAsync(spec);
+
+            return order;
         }
 
-        public Task<IReadOnlyList<Order>> GetOrdersForUserAsync(string buyerEmail)
+        public async Task<IReadOnlyList<Order>> GetOrdersForUserAsync(string buyerEmail)
         {
-            throw new NotImplementedException();
+            var spec = new OrderWithItemsAndDeliveryMethodSpecifications(buyerEmail);
+
+            var orders = await _unitOfWork.Repository<Order>().GetAllWithSpecAsync(spec);
+
+            return orders;
         }
 
-        public Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodAsync()
+        public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodAsync()
         {
-            throw new NotImplementedException();
+            var delivaryMethods = await _unitOfWork.Repository<DeliveryMethod>().GetAllAsync();
+            return delivaryMethods;
         }
 
     }
