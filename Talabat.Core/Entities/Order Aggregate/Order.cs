@@ -14,13 +14,14 @@ namespace Talabat.Core.Entities.Order_Aggregate
 
         }
 
-        public Order(string buyerEmail, Address shipToAddress, DeliveryMethod deliveryMethod, ICollection<OrderItem> items, decimal subTotal)
+        public Order(string buyerEmail, Address shipToAddress, DeliveryMethod deliveryMethod, ICollection<OrderItem> items, decimal subTotal, string paymentIntentId)
         {
             BuyerEmail = buyerEmail;
             ShipToAddress = shipToAddress;
             DeliveryMethod = deliveryMethod;
             Items = items;
             SubTotal = subTotal;
+            PaymentIntentId = paymentIntentId;
         }
 
         public string BuyerEmail { get; set; }
@@ -30,7 +31,7 @@ namespace Talabat.Core.Entities.Order_Aggregate
         public DeliveryMethod DeliveryMethod { get; set; } // Nav Prop [ONE]
         public ICollection<OrderItem> Items { get; set; } = new HashSet<OrderItem>(); // Nav Prop [Many]
 
-        public string PaymentIntentId { get; set; } = string.Empty;
+        public string PaymentIntentId { get; set; }
 
         public decimal SubTotal { get; set; }
 

@@ -68,7 +68,18 @@ namespace Talabat.APIs
             #endregion
 
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MyPloicy", policy =>
+                {
+                    policy.WithOrigins(builder.Configuration["AngularBaseUrl"])
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .SetIsOriginAllowed(origin => true);
+                });
+            });
             #endregion
+
 
             var app = builder.Build();
 
@@ -131,6 +142,7 @@ namespace Talabat.APIs
 
             app.UseHttpsRedirection();
 
+            app.UseCors("MyPloicy");
 
             app.UseAuthorization();
 
