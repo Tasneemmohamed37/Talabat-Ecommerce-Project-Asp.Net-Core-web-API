@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.27" />
     <PackageReference Include="StackExchange.Redis" Version="2.7.27" />
+    <PackageReference Include="Stripe.net" Version="43.20.0" />
   </ItemGroup>
 
 </Project>
