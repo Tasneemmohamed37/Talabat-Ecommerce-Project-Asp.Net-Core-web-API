@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Talabat.Reposatory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1fcf58cafd03bf9d25e314d993822cd282fbc25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74eac036a526bdf01545650a6b7a7041a6bb1591")]
 [assembly: System.Reflection.AssemblyProductAttribute("Talabat.Reposatory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Talabat.Reposatory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

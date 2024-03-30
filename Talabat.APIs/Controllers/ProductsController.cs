@@ -31,6 +31,7 @@ namespace Talabat.APIs.Controllers
 
         #region Get All Products
 
+        [cachedAttribute(600)]
         [ProducesResponseType(typeof(IReadOnlyList<Pagination<ProductToReturnDto>>), StatusCodes.Status200OK)]
         [HttpGet("AllProducts")]
         public async Task<ActionResult<IReadOnlyList<Pagination<ProductToReturnDto>>>> GetAllProducts([FromQuery]ProductSpecParams specParams) // use attribute from query becouse by defualt search for obj param in body , and get request not have body
@@ -52,6 +53,7 @@ namespace Talabat.APIs.Controllers
 
         #region Get Product By Id Async
 
+        [cachedAttribute(600)]
         [ProducesResponseType(typeof(ProductToReturnDto), StatusCodes.Status200OK)] // used to improve swagger documentation
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
@@ -67,6 +69,7 @@ namespace Talabat.APIs.Controllers
         #endregion
 
         #region Get All Product_types
+        [cachedAttribute(600)]
         [ProducesResponseType(typeof(IReadOnlyList<Product_Type>), StatusCodes.Status200OK)]
         [HttpGet("productTypes")]
         public async Task<ActionResult<IReadOnlyList<Product_Type>>> GetAllProductTypes()
@@ -77,6 +80,7 @@ namespace Talabat.APIs.Controllers
         #endregion
 
         #region Get All Product_brands
+        [cachedAttribute(600)]
         [ProducesResponseType(typeof(IReadOnlyList<Product_Brand>), StatusCodes.Status200OK)]
         [HttpGet("productBrands")]
         public async Task<ActionResult<IReadOnlyList<Product_Brand>>> GetAllProductBrands()

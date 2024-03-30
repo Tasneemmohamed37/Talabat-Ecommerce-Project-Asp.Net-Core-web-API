@@ -20,6 +20,7 @@ namespace Talabat.APIs.Extentions
             #region Services
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddSingleton<IResponseCacheService, ResponseCacheService>();
             #endregion
 
             #region Auto Mapper
